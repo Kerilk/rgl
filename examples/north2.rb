@@ -14,7 +14,7 @@ IO.foreach('north/Graph.log') { |line|
     directed, acyclic, connected, biconnected = $1, $2, $3, $4
     puts [name, nnodes, nedges].join('-|-')
     File.open('north/' + name + '.graphml') { |file|
-      graph = DirectedAdjacencyGraph.from_graphxml(file)
+      graph = DirectedAdjacencyGraph.new.from_graphxml(file)
       puts "#{graph.num_vertices} = #{nnodes}"
     }
   end
